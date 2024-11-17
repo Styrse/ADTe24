@@ -1,7 +1,10 @@
 package wordcounter;
 
-import org.Exercises.wordcounter.WordCounter;
+import entities.Student;
 import org.junit.jupiter.api.Test;
+
+import java.util.LinkedList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -47,5 +50,20 @@ public class WordCounterTest
         assertEquals(19, result.get("snow"));
         assertEquals(13, result.get("all"));
         assertEquals(11, result.get("universe"));
+    }
+
+    public static void something()
+    {
+        List<Student> linkedlist = new LinkedList<>();
+
+        linkedlist.add(new Student("Agnete", 1));
+        linkedlist.add(new Student("Elisa", 2));
+        linkedlist.add(new Student("Grethe", 3));
+        linkedlist.add(new Student("Anne-Merethe", 4));
+        linkedlist.add(new Student("Molly", 5));
+        linkedlist.add(new Student("Lis", 6));
+
+
+
     }
 }
