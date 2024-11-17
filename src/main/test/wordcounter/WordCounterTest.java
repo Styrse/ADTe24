@@ -24,6 +24,20 @@ public class WordCounterTest
     public void countWordOccurrences()
     {
         // Arrange
+        WordCounter wordCounter = new WordCounter("something something something, darkside, something something,,, something complete!", false);
+
+        // Act
+        var result = wordCounter.countWordOccurrences();
+
+        // Assert
+        assertEquals(6, result.get("something"));
+        assertEquals(1, result.get("darkside"));
+        assertEquals(1, result.get("complete"));
+    }
+    @Test
+    public void countWordOccurrencesFile()
+    {
+        // Arrange
         WordCounter wordCounter = new WordCounter("data/hhgttg.txt", true);
 
         // Act
