@@ -41,8 +41,11 @@ public class WordCounter {
         String[] words = data.trim().split("\\s+");
 
         for (String s : words){
-            int count = 0;
-            map.put(s, 1);
+            if (map.get(s).equals(s)){
+                map.put(s, map.get(s)+1);
+            } else {
+                map.put(s, 1);
+            }
         }
         System.out.println(map);
 
