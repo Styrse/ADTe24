@@ -15,7 +15,7 @@ public class WordCounter {
             try {
                 Scanner scanner = new Scanner(new File(data));
                 while (scanner.hasNext())
-                    this.data += scanner.nextLine() + "\n";
+                    this.data += scanner.nextLine().toLowerCase() + "\n";
             } catch (FileNotFoundException e) {
                 throw new RuntimeException(e);
             }
@@ -36,42 +36,41 @@ public class WordCounter {
         return num;
     }
 
+
     public Map<String, Integer> countWordOccurrences() {
         Map<String, Integer> map = new HashMap<String, Integer>();
-        String[] words = data.trim().split("\\s+");
+        String[] words = data.trim().replaceAll("[^a-zA-Z]", " ").split("\\s+");
 
         for (String s : words){
-            if (map.get(s).equals(s)){
+            if (map.containsKey(s)){
                 map.put(s, map.get(s)+1);
             } else {
                 map.put(s, 1);
             }
         }
-        System.out.println(map);
 
         return map;
     }
 
     public int methodOne(){
         String[] words = data.trim().split("\\s+");
-        for (String s : words){
-            System.out.println(s);
-        }
+//        for (String s : words){
+//            System.out.println(s);
+//        }
         return words.length;
     }
 
     public int methodTwo(){
         String[] words = data.replaceAll("[^a-zA-Z]", " ").split("\\s+");
 
-        for (String s : words){
-            System.out.println(s);
-        }
+//        for (String s : words){
+//            System.out.println(s);
+//        }
         return words.length;
     }
 
     public int methodThree(){
         data = data.replaceAll(",", "");
-        data = data.replaceAll("-", " ");
         data = data.replaceAll("—", " ");
         data = data.replace(".", "");
         data = data.replaceAll("“", "");
@@ -83,9 +82,9 @@ public class WordCounter {
         data = data.replaceAll("[0-9]", "");
         String[] words = data.trim().split("\\s+");
 
-        for (String s : words){
-            System.out.println(s);
-        }
+//        for (String s : words){
+//            System.out.println(s);
+//        }
         return words.length;
     }
 }

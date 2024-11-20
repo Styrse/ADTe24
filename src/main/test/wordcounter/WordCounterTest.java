@@ -20,7 +20,7 @@ public class WordCounterTest
         var result = wordCounter.countTotalWords();
 
         // Assert
-        assertEquals(1853, result);
+        assertEquals(1842, result);         //1853
     }
 
     @Test
